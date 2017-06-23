@@ -1,5 +1,6 @@
 package offer;
 
+import java.util.Comparator;
 import java.util.TreeSet;
 
 /**
@@ -12,7 +13,12 @@ public class FindKMinimumNums {
         if (nums.length == k) return nums;
 
         // 大顶堆
-        TreeSet<Integer> minNums = new TreeSet<>((num1, num2) -> (num1 > num2) ? -1 : ((num1 == num2) ? 0 : 1));
+        TreeSet<Integer> minNums = new TreeSet<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer num1, Integer num2) {
+                return (num1 > num2) ? -1 : ((num1 == num2) ? 0 : 1);
+            }
+        });
 
         for (int i = 0; i < k; i++) {
             minNums.add(nums[i]);
