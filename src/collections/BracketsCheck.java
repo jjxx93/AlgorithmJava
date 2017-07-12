@@ -1,10 +1,10 @@
 package collections;
 
+import java.util.Scanner;
 import java.util.Stack;
 
 /**
  * 使用栈来检测括号序列的合法性
- * Created by jiax on 2016/11/23.
  */
 public class BracketsCheck {
     public static boolean check (char[] characters) {
@@ -32,6 +32,7 @@ public class BracketsCheck {
                         return false;
                     }
                     break;
+                default : break;
             }
         }
 
@@ -39,8 +40,9 @@ public class BracketsCheck {
     }
 
     public static void main(String[] args) {
-        System.out.println(args[0]);
-        char[] chars = args[0].toCharArray();
+        Scanner scanner = new Scanner(System.in);
+        String string = scanner.next();
+        char[] chars = string.toCharArray();
         System.out.println(BracketsCheck.check(chars));
     }
 }
