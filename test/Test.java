@@ -1,22 +1,27 @@
-import java.util.concurrent.atomic.AtomicInteger;
-
 /**
  * Created by jjxx9 on 2017/4/11.
  */
 
 public class Test {
-    public static void main(String[] args) {
-        Thread t = new Thread() {
-            public void run() {
-                baidu();
-            }
-        };
-        t.run();
-        System.out.println("hello");
+    {
+        cnt = 6;
     }
 
-    static synchronized void baidu() {
-        System.out.println("baidu");
+    int cnt = 100;
+
+    public Test() {
+        cnt = 60;
+    }
+
+    public static void main(String[] args){
+        Test test = new Test();
+        System.out.println("cnt = " + test.cnt);
+        //最后输出是50，如果按照错误说法就应该是3
+        //按顺序执行就是cnt=6--->cnt=100---->cnt = 100/2 = 50.
+    }
+
+    {
+        cnt /= 2;
     }
 }
 
