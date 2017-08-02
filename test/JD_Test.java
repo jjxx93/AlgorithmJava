@@ -45,19 +45,27 @@ public class JD_Test {
     }
 
     public static void main(String[] args) {
-        String vid = "76706";
+        final String VID_URL = "http://gw.video.jd.local/le/videoInfo.action?";
+
+        String videoUnique = "7748599f86";
 
         long timeStamp = new Date().getTime();
 
         System.out.println(timeStamp);
 
-        String sign = getMD5(vid + SECRET_ID + timeStamp);
+        // 握手校验(md5加密)
+        String sign = getMD5(videoUnique + APP_ID + SECRET_ID);
 
-        System.out.println(sign);
+        // 拼接请求URL
+        String param = "vu=" + videoUnique + "&appid=" + APP_ID + "&sign=" + sign;
 
-        String result = HttpRequest.sendGet("http://gw.video.jd.com/t/getPlayAddress.action?",
-                "vid=442063&timestamp=1500613037768&sign=4e0f746f98225f0d10dc2e6ff3f67d8a");
 
+
+//        String param = "cmd=10001&videoName=test&videoDesc=testVideo&clientIp=118.228.152.172&fileSize=10240";
+//        System.out.println(param);
+        String result = HttpRequest.sendGet(VID_URL, param);
+
+        System.out.println(result);
 
 //        VidDto resultDto = JSONObject.parseObject(result, VidDto.class);
 //
