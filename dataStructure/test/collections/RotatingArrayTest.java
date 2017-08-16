@@ -2,6 +2,8 @@ package collections;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * Created by jjxx9 on 2017/4/10.
  */

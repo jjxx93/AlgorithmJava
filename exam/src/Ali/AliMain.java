@@ -18,8 +18,6 @@ public class AliMain {
      * @return
      */
     static long doneTime(int maxQps,String[] rtList,int requestNum,int threadNum) {
-        // TODO
-
         int brokerNum = rtList.length;
         int[] handleNumArray = new int[brokerNum];
 
