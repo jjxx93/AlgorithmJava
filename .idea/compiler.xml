@@ -6,13 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="algorithm" />
         <module name="dataStructure" />
+        <module name="exam" />
+        <module name="test" />
         <module name="tools" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="algorithm" target="1.7" />
       <module name="AlgorithmJava" target="1.7" />
+      <module name="algorithmJava" target="1.7" />
       <module name="dataStructure" target="1.7" />
+      <module name="exam" target="1.7" />
+      <module name="test" target="1.7" />
       <module name="tools" target="1.7" />
     </bytecodeTargetLevel>
   </component>
