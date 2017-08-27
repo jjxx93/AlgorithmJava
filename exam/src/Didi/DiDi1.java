@@ -1,4 +1,4 @@
-package exam;
+package Didi;
 
 import java.util.Scanner;
 

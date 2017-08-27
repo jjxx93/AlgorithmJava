@@ -7,7 +7,7 @@ public class MaxSumOfSubarray_31 {
     public static int getMaxSumOfSubarray(int[] array) {
         if (array == null || array.length == 0) return 0;
 
-        int maxSum = 0, tempSum = 0;
+        int maxSum = 0x80000000, tempSum = 0;
         for (int anArray : array) {
             if (tempSum < 0) tempSum = anArray;
             else tempSum += anArray;
