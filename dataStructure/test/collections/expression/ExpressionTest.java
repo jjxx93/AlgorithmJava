@@ -1,5 +1,6 @@
 package collections.expression;
 
+import expression.Expression;
 import org.junit.Test;
 
 /**

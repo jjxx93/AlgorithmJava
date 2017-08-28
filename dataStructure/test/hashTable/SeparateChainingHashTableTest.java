@@ -1,6 +1,7 @@
 package hashTable;
 
 import org.junit.Test;
+import stack.SeparateChainingHashTable;
 
 /**
  * Created by jjxx9 on 2017/3/17.

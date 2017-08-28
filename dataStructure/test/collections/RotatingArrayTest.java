@@ -1,6 +1,7 @@
 package collections;
 
 import org.junit.Test;
+import stack.RotatingArray;
 
 import static org.junit.Assert.assertEquals;
 
