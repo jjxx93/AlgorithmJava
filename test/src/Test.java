@@ -2,29 +2,26 @@
  * Created by jjxx9 on 2017/4/11.
  */
 
+
 public class Test {
-    {
-        cnt = 6;
+        public static int method(int i)throws Exception {
+            try {
+                return 100/i;
+            } catch(Exception ex){
+                throw new Exception("exception in a Method ");
+            } finally {
+                System.out.printf("finally ");
+            }
+        }
+        public static void main(String[] args){
+            try {
+                method(0);
+            } catch(Exception ex){
+                System.out.printf("exception in main ");
+            }
+            System.out.printf("finished ");
+        }
     }
-
-    int cnt = 100;
-
-    public Test() {
-        cnt = 60;
-    }
-
-    public static void main(String[] args){
-        Test test = new Test();
-        System.out.println("cnt = " + test.cnt);
-        //最后输出是50，如果按照错误说法就应该是3
-        //按顺序执行就是cnt=6--->cnt=100---->cnt = 100/2 = 50.
-    }
-
-    {
-        cnt /= 2;
-    }
-}
-
 /*
 while (上一次迭代中是有交换发生) {
     for（从第一个用户到最后一个用户）{     // Ni

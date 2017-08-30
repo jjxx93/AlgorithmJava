@@ -52,12 +52,12 @@ public class Dajiang2 {
             Date date = formatter.parse(tempStr);
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
-            calendar.set(Calendar.HOUR, calendar.get(Calendar.HOUR) - 3);
+            calendar.set(Calendar.HOUR, calendar.get(Calendar.HOUR) - 3);   // 减三个小时
 
             int month = calendar.get(Calendar.MONTH) + 1;
             int day = calendar.get(Calendar.DAY_OF_MONTH);
             String nowDate = ((month<10) ? ("0" + month) : month) + "." + ((day<10) ? ("0" + day) : day);
-            if (times.containsKey(nowDate)) {
+            if (times.containsKey(nowDate)) {       // 存入hashMap中，key为日期，value为起止时间
                 Calendar[] calendars = times.get(nowDate);
 
                 if (calendars[1] != null) {
@@ -97,7 +97,7 @@ public class Dajiang2 {
                 sleepEnd.set(Calendar.MINUTE, 0);
                 sleepEnd.set(Calendar.SECOND, 0);
 
-                long ms;
+                long ms;        // 减去午休时间
                 if (calendarPair[0].before(sleepStart)) {
                     if (calendarPair[1].before(sleepStart)) {
                         ms = calendarPair[1].getTimeInMillis() - calendarPair[0].getTimeInMillis();

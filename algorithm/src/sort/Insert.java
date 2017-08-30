@@ -8,13 +8,10 @@ package sort;
  */
 public class Insert {
     public static void insertSort(int[] intArr) {
-        int k = 0;
         for (int i = 1; i < intArr.length; i++) {
             int temp = intArr[i];
-            if (temp == 60) System.out.println(k);
             int j = i;
             while (j > 0 && temp < intArr[j-1]) {
-                k++;
                 intArr[j] = intArr[--j];
             }
             intArr[j] = temp;
