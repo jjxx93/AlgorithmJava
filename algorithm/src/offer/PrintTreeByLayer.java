@@ -1,9 +1,9 @@
 package offer;
 
-import tree.BinaryTree;
-
-import java.util.ArrayDeque;
-import java.util.Deque;
+//import tree.BinaryTree;
+//
+//import java.util.ArrayDeque;
+//import java.util.Deque;
 
 /**
  * 从上到下，从左到右依次打印二叉树的每个节点
@@ -17,19 +17,20 @@ public class PrintTreeByLayer {
      * @return 打印字符串
      */
     public static String printTreeByLayer(BinaryTreeNode root) {
-        if (root == null) return "";
-
-        StringBuilder outString = new StringBuilder();
-        Deque<BinaryTreeNode> treeNodes = new ArrayDeque<>();
-        treeNodes.offer(root);
-
-        while(!treeNodes.isEmpty()) {
-            BinaryTreeNode node = treeNodes.poll();
-            outString.append(node.val);
-            if (node.left != null) treeNodes.offer(node.left);
-            if (node.right != null) treeNodes.offer(node.right);
-        }
-
-        return outString.toString();
+//        if (root == null) return "";
+//
+//        StringBuilder outString = new StringBuilder();
+//        Deque<BinaryTreeNode> treeNodes = new ArrayDeque<>();
+//        treeNodes.offer(root);
+//
+//        while(!treeNodes.isEmpty()) {
+//            BinaryTreeNode node = treeNodes.poll();
+//            outString.append(node.val);
+//            if (node.left != null) treeNodes.offer(node.left);
+//            if (node.right != null) treeNodes.offer(node.right);
+//        }
+//
+//        return outString.toString();
+        return "";
     }
 }

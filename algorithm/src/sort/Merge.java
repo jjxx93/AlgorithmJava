@@ -1,37 +1,16 @@
 package sort;
 
+import java.util.Arrays;
+
 /**
  * 归并排序:先将数列分成一个个小部分，排序，再将排序后的部分组合在一起
- * Created by jiax on 2016/7/5.
+ *
+ * Created by jiax on 2017/8/31.
  */
 public class Merge {
     /**
-     * 合并两个数组
-     * @param intArrLeft 左数组
-     * @param intArrRight 右数组
-     * @param intArr 合并后的数组
-     */
-    public static void mergeArray(int[] intArrLeft, int[] intArrRight, int[] intArr) {
-        int i = 0, j = 0, k = 0;
-        while (i < intArrLeft.length && j < intArrRight.length) {
-            if (intArrLeft[i] < intArrRight[j]) {
-                intArr[k++] = intArrLeft[i++];
-            } else {
-                intArr[k++] = intArrRight[j++];
-            }
-        }
-
-        while (i < intArrLeft.length) {
-            intArr[k++] = intArrLeft[i++];
-        }
-
-        while (j < intArrRight.length) {
-            intArr[k++] = intArrRight[j++];
-        }
-    }
-
-    /**
      * 归并排序
+     *
      * @param intArr 待排序数组
      */
     public static void mergeSort(int[] intArr) {
@@ -55,11 +34,37 @@ public class Merge {
         }
     }
 
+    /**
+     * 合并两个数组
+     *
+     * @param intArrLeft 左数组
+     * @param intArrRight 右数组
+     * @param intArr 合并后的数组
+     */
+    public static void mergeArray(int[] intArrLeft, int[] intArrRight, int[] intArr) {
+        int i = 0, j = 0, k = 0;
+        while (i < intArrLeft.length && j < intArrRight.length) {
+            if (intArrLeft[i] < intArrRight[j]) {
+                intArr[k++] = intArrLeft[i++];
+            } else {
+                intArr[k++] = intArrRight[j++];
+            }
+        }
+
+        while (i < intArrLeft.length) {
+            intArr[k++] = intArrLeft[i++];
+        }
+
+        while (j < intArrRight.length) {
+            intArr[k++] = intArrRight[j++];
+        }
+    }
+
     public static void main(String[] args) {
-        int[] intArr = Utility.getIntArr();
+        int[] intArr = {1, 10, 32, 42, 9, 423, 2380, 2389, 230, 239, 120};
 
         mergeSort(intArr);
 
-        Utility.showIntArr(intArr);
+        System.out.println(Arrays.toString(intArr));
     }
 }

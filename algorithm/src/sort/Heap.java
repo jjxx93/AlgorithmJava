@@ -1,6 +1,6 @@
 package sort;
 
-import tree.BinaryHeap;
+//import tree.BinaryHeap;
 
 /**
  * 堆排序
@@ -13,11 +13,11 @@ public class Heap {
             integers[i] = intArr[i];
         }
 
-        BinaryHeap<Integer> binaryHeap = new BinaryHeap<>(integers);
-
-        for (int i = 0; i < intArr.length; i++) {
-            intArr[i] = binaryHeap.deleteMin();
-        }
+//        BinaryHeap<Integer> binaryHeap = new BinaryHeap<>(integers);
+//
+//        for (int i = 0; i < intArr.length; i++) {
+//            intArr[i] = binaryHeap.deleteMin();
+//        }
     }
 
     public static void main(String[] args) {

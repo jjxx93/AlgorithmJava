@@ -97,23 +97,23 @@ public class Dajiang2 {
                 sleepEnd.set(Calendar.MINUTE, 0);
                 sleepEnd.set(Calendar.SECOND, 0);
 
-                long ms;        // 减去午休时间
-                if (calendarPair[0].before(sleepStart)) {
-                    if (calendarPair[1].before(sleepStart)) {
-                        ms = calendarPair[1].getTimeInMillis() - calendarPair[0].getTimeInMillis();
-                    } else if (calendarPair[1].before(sleepEnd)) {
-                        ms = sleepStart.getTimeInMillis() - calendarPair[0].getTimeInMillis();
-                    } else {
-                        ms = calendarPair[1].getTimeInMillis() - calendarPair[0].getTimeInMillis() - 5400000;
-                    }
-                } else if (calendarPair[0].before(sleepEnd)) {
-                    if (calendarPair[1].before(sleepEnd)) break;
-                    else {
-                        ms = calendarPair[1].getTimeInMillis() - sleepEnd.getTimeInMillis();
-                    }
-                } else {
-                    ms = calendarPair[1].getTimeInMillis() - calendarPair[0].getTimeInMillis();
-                }
+//                long ms;        // 减去午休时间
+//                if (calendarPair[0].before(sleepStart)) {
+//                    if (calendarPair[1].before(sleepStart)) {
+//                        ms = calendarPair[1].getTimeInMillis() - calendarPair[0].getTimeInMillis();
+//                    } else if (calendarPair[1].before(sleepEnd)) {
+//                        ms = sleepStart.getTimeInMillis() - calendarPair[0].getTimeInMillis();
+//                    } else {
+//                        ms = calendarPair[1].getTimeInMillis() - calendarPair[0].getTimeInMillis() - 5400000;
+//                    }
+//                } else if (calendarPair[0].before(sleepEnd)) {
+//                    if (calendarPair[1].before(sleepEnd)) break;
+//                    else {
+//                        ms = calendarPair[1].getTimeInMillis() - sleepEnd.getTimeInMillis();
+//                    }
+//                } else {
+                long ms = calendarPair[1].getTimeInMillis() - calendarPair[0].getTimeInMillis();
+//                }
 
                 results.add(date + " " + ms/1000);
             }
