@@ -40,24 +40,25 @@ public class Dajiang2 {
     public static void main(String[] args) throws ParseException {
 
         Scanner sc = new Scanner(System.in);
-        int length = Integer.valueOf(sc.nextLine());        // 行数
+        int length = Integer.valueOf(sc.nextLine());
 
-        Map<String, Calendar[]> times = new HashMap<>();
+        Map<String, Calendar[]> times = new HashMap<String, Calendar[]>();
 
-        SimpleDateFormat formatter = new SimpleDateFormat( "MM.dd HH:mm:ss");
-        // 读取输入
         for (int i = 0; i < length; i++) {
             String tempStr = sc.nextLine();
 
+            SimpleDateFormat formatter = new SimpleDateFormat("MM.dd HH:mm:ss");
             Date date = formatter.parse(tempStr);
             Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.YEAR,2017);
             calendar.setTime(date);
-            calendar.set(Calendar.HOUR, calendar.get(Calendar.HOUR) - 3);   // 减三个小时
+            calendar.set(Calendar.HOUR_OF_DAY, calendar.get(Calendar.HOUR_OF_DAY)-3);
 
             int month = calendar.get(Calendar.MONTH) + 1;
             int day = calendar.get(Calendar.DAY_OF_MONTH);
-            String nowDate = ((month<10) ? ("0" + month) : month) + "." + ((day<10) ? ("0" + day) : day);
-            if (times.containsKey(nowDate)) {       // 存入hashMap中，key为日期，value为起止时间
+            String nowDate = ((month < 10) ? ("0" + month) : month) + "." + ((day < 10) ? ("0" + day) : day);
+
+            if (times.containsKey(nowDate)) {
                 Calendar[] calendars = times.get(nowDate);
 
                 if (calendars[1] != null) {
@@ -74,49 +75,71 @@ public class Dajiang2 {
             } else {
                 Calendar[] calendars = new Calendar[2];
                 calendars[0] = calendar;
+
                 times.put(nowDate, calendars);
             }
         }
 
-        // 计算结果
         Set<String> dateSet = times.keySet();
-        List<String> results = new ArrayList<>();
-        List<String> dateList = new ArrayList<>(dateSet.size());
-        dateList.addAll(dateSet);
-        Collections.sort(dateList);
+        List<String> timeList = new ArrayList<String>(dateSet.size());
+        for (String date : dateSet) {
+            timeList.add(date);
+        }
+        Collections.sort(timeList);
 
-        for (String date : dateList) {
-            Calendar[] calendarPair = times.get(date);
+        SimpleDateFormat format = new SimpleDateFormat("YY:MM:dd HH:mm:ss");
+        List<String> results = new ArrayList<String>();
+        for (String time : timeList) {
+            Calendar[] calendarPair = times.get(time);
             if (calendarPair[1] != null) {
-                Calendar sleepStart = calendarPair[0];
-                sleepStart.set(Calendar.HOUR, 9);
+
+                long ms=0;
+
+                //减去午休时间
+//                say(calendarPair[0]);
+//                System.out.println();
+//                say(calendarPair[1]);
+//                System.out.println();
+
+                Calendar sleepStart = (Calendar) calendarPair[0].clone();
+                sleepStart.set(Calendar.HOUR_OF_DAY, 9);
                 sleepStart.set(Calendar.MINUTE, 30);
                 sleepStart.set(Calendar.SECOND, 0);
-                Calendar sleepEnd = calendarPair[0];
-                sleepEnd.set(Calendar.HOUR, 11);
+//                System.out.print("休息开始：");say(sleepStart);System.out.println();
+
+
+                Calendar sleepEnd = (Calendar) calendarPair[0].clone();
+                sleepEnd.set(Calendar.HOUR_OF_DAY, 11);
                 sleepEnd.set(Calendar.MINUTE, 0);
                 sleepEnd.set(Calendar.SECOND, 0);
+//                System.out.print("休息结束：");say(sleepEnd);System.out.println();
 
-//                long ms;        // 减去午休时间
-//                if (calendarPair[0].before(sleepStart)) {
-//                    if (calendarPair[1].before(sleepStart)) {
-//                        ms = calendarPair[1].getTimeInMillis() - calendarPair[0].getTimeInMillis();
-//                    } else if (calendarPair[1].before(sleepEnd)) {
-//                        ms = sleepStart.getTimeInMillis() - calendarPair[0].getTimeInMillis();
-//                    } else {
-//                        ms = calendarPair[1].getTimeInMillis() - calendarPair[0].getTimeInMillis() - 5400000;
-//                    }
-//                } else if (calendarPair[0].before(sleepEnd)) {
-//                    if (calendarPair[1].before(sleepEnd)) break;
-//                    else {
-//                        ms = calendarPair[1].getTimeInMillis() - sleepEnd.getTimeInMillis();
-//                    }
-//                } else {
-                long ms = calendarPair[1].getTimeInMillis() - calendarPair[0].getTimeInMillis();
-//                }
 
-                results.add(date + " " + ms/1000);
+
+
+                if (calendarPair[0].before(sleepStart) && calendarPair[1].after(sleepEnd)) { //上班--开始休息--结束休息--下班
+                    ms = calendarPair[1].getTimeInMillis() - calendarPair[0].getTimeInMillis() - 5400000;
+
+                } else if (calendarPair[0].before(sleepStart) && calendarPair[1].before(sleepStart)) {//上班--开始休息--下班--结束休息
+                    ms = calendarPair[1].getTimeInMillis() - calendarPair[0].getTimeInMillis();
+
+                } else if (calendarPair[0].before(sleepStart) && calendarPair[1].before(sleepEnd)) {//上班--下班--开始休息
+                    ms = sleepStart.getTimeInMillis() - calendarPair[0].getTimeInMillis();
+
+                } else if (calendarPair[0].before(sleepEnd) && calendarPair[1].after(sleepEnd)) {
+                    ms = calendarPair[1].getTimeInMillis() - sleepEnd.getTimeInMillis();
+
+                }else if (calendarPair[0].before(sleepEnd) && calendarPair[1].before(sleepEnd)){
+                    ms=0;
+
+                }else if (calendarPair[0].after(sleepEnd) && calendarPair[1].after(sleepEnd)){
+                    ms = calendarPair[1].getTimeInMillis() - calendarPair[0].getTimeInMillis();
+                }
+
+
+                results.add(time + " " + ms / 1000);
             }
+
         }
 
         // 输出结果
@@ -128,7 +151,16 @@ public class Dajiang2 {
             }
         }
     }
+
+    public static void say(Calendar calendar) {
+
+        Date date = calendar.getTime();
+        String result = date.getMonth() + "." + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        System.out.print(result);
+
+    }
 }
+
 /*
 12
 08.10 01:00:00
