@@ -33,8 +33,8 @@ public class zhongxing2 {
                 if (result.length < (n1 + n2)) {
                     array.add(result);
                     int power_tmp=0;
-                    for(int k=0;k<result.length;k++){
-                        power_tmp+=strength[result[k]-1];
+                    for (int aResult : result) {
+                        power_tmp += strength[aResult - 1];
                     }
                     if(power_tmp>max_power){
                         max_power=power_tmp;
