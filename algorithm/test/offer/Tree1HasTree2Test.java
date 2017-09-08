@@ -19,8 +19,8 @@ public class Tree1HasTree2Test {
         BinaryTreeNode root1  = new BinaryTreeNode(8, node8, node72);
 
         BinaryTreeNode root2 = new BinaryTreeNode(8, node9, node2);
-        assertTrue(Tree1HasTree2.hasSubtree(root1, root2));
-        assertFalse(Tree1HasTree2.hasSubtree(null, root2));
-        assertFalse(Tree1HasTree2.hasSubtree(root1, null));
+        assertTrue(Tree1HasTree_02.hasSubtree(root1, root2));
+        assertFalse(Tree1HasTree_02.hasSubtree(null, root2));
+        assertFalse(Tree1HasTree_02.hasSubtree(root1, null));
     }
 }

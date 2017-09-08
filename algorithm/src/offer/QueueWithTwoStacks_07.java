@@ -7,7 +7,7 @@ import java.util.Stack;
  * Created by jiax on 2017/1/5.
  */
 
-public class Solution4 {
+public class QueueWithTwoStacks_07 {
     Stack<Integer> stack1 = new Stack<Integer>();
     Stack<Integer> stack2 = new Stack<Integer>();
 
@@ -16,7 +16,7 @@ public class Solution4 {
     }
 
     public int pop() {
-        if(stack1.empty()&&stack2.empty()){
+        if(stack1.empty() && stack2.empty()){
             throw new RuntimeException("Queue is empty!");
         }
 
@@ -30,7 +30,7 @@ public class Solution4 {
     }
 
     public static void main(String[] args) {
-        Solution4 solution4 = new Solution4();
+        QueueWithTwoStacks_07 solution4 = new QueueWithTwoStacks_07();
         solution4.push(1);
         solution4.push(2);
         solution4.push(3);
