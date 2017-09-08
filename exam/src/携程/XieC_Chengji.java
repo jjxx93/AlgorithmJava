@@ -1,4 +1,4 @@
-package exam;
+package 携程;
 
 import java.util.Scanner;
 
