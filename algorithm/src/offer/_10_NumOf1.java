@@ -4,7 +4,7 @@ package offer;
  * 从1到n的整数中1出现的次数
  * Created by jjxx9 on 2017/5/5.
  */
-public class NumOf1_10 {
+public class _10_NumOf1 {
     public static int getCountOf1(int n) {
         int count = 0;
         while (n != 0) {
@@ -17,6 +17,6 @@ public class NumOf1_10 {
     }
 
     public static void main(String[] args) {
-        System.out.println(NumOf1_10.getCountOf1(-10));
+        System.out.println(_10_NumOf1.getCountOf1(-10));
     }
 }

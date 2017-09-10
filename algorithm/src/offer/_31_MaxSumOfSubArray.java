@@ -3,7 +3,7 @@ package offer;
 /**
  * Created by jjxx9 on 2017/5/5.
  */
-public class MaxSumOfSubarray_31 {
+public class _31_MaxSumOfSubArray {
     public static int getMaxSumOfSubarray(int[] array) {
         if (array == null || array.length == 0) return 0;
 

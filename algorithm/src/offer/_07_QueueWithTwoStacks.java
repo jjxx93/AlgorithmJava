@@ -7,7 +7,7 @@ import java.util.Stack;
  * Created by jiax on 2017/1/5.
  */
 
-public class QueueWithTwoStacks_07 {
+public class _07_QueueWithTwoStacks {
     Stack<Integer> stack1 = new Stack<Integer>();
     Stack<Integer> stack2 = new Stack<Integer>();
 
@@ -30,7 +30,7 @@ public class QueueWithTwoStacks_07 {
     }
 
     public static void main(String[] args) {
-        QueueWithTwoStacks_07 solution4 = new QueueWithTwoStacks_07();
+        _07_QueueWithTwoStacks solution4 = new _07_QueueWithTwoStacks();
         solution4.push(1);
         solution4.push(2);
         solution4.push(3);

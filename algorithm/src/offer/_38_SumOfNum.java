@@ -7,7 +7,7 @@ package offer;
  * 输出：4
  * Created by jjxx9 on 2017/5/5.
  */
-public class SumOfNum_38 {
+public class _38_SumOfNum {
     public static int GetNumOfK(int[] nums, int num) {
         if (nums == null || nums.length == 0) return -1;
 

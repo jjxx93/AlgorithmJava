@@ -6,7 +6,7 @@ package offer;
  * 则经过替换之后的字符串为We%20Are%20Happy。
  * Created by jiax on 2017/1/4.
  */
-public class ReplaceBlank_04 {
+public class _04_ReplaceBlank {
     public String replaceSpace(String str) {
         char[] originChars = str.toCharArray();
 
@@ -35,6 +35,6 @@ public class ReplaceBlank_04 {
     public static void main(String[] args) {
         String str = "   ";
         System.out.println(str.length());
-        System.out.println(new ReplaceBlank_04().replaceSpace(str));
+        System.out.println(new _04_ReplaceBlank().replaceSpace(str));
     }
 }

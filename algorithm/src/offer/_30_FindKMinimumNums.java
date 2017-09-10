@@ -11,7 +11,7 @@ import java.util.TreeSet;
  * 从一个无序数组中找出k个最小的数
  * Created by jjxx9 on 2017/5/5.
  */
-public class FindKMinimumNums_30 {
+public class _30_FindKMinimumNums {
     public static int[] findKMinNumsByBigTopPile(int[] nums, int k) {
         if (nums.length < k) return null;
         if (nums.length == k) return nums;

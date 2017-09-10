@@ -5,7 +5,7 @@ package offer;
  *
  * 找出数组中只出现一次的两个数字。
  */
-public class FindNumsAppearOnce_40 {
+public class _40_FindNumsAppearOnce {
     public static int[] find2Nums(int[] nums) {
         if (nums == null || nums.length < 2) {
             return nums;
@@ -48,6 +48,6 @@ public class FindNumsAppearOnce_40 {
     }
 
     public static void main(String[] args) {
-        FindNumsAppearOnce_40.find2Nums(new int[]{1, 1, 2, 3, 4, 4});
+        _40_FindNumsAppearOnce.find2Nums(new int[]{1, 1, 2, 3, 4, 4});
     }
 }

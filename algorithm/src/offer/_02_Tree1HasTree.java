@@ -6,7 +6,7 @@ package offer;
  * 2. 判断树1中以R为根节点的子树是否包含树2
  * Created by jjxx9 on 2017/4/13.
  */
-public class Tree1HasTree_02 {
+public class _02_Tree1HasTree {
     /**
      * 寻找相同根节点
      */

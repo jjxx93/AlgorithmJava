@@ -8,7 +8,7 @@ package offer;
  *
  * Created by jiax on 2017/1/4.
  */
-public class FindInSortedMatrix_3 {
+public class _03_FindInSortedMatrix {
     // 二分法查找
     public boolean Find(int target, int [][] array) {
         for (int i = 0; i < array.length; i++) {
@@ -50,6 +50,6 @@ public class FindInSortedMatrix_3 {
         int[][] array = {{1,2,8,9},{2,4,9,12},{4,7,10,13},{6,8,11,15}};
         //int[][] array = new int[][]{};
 
-        System.out.println(new FindInSortedMatrix_3().find(15, array));
+        System.out.println(new _03_FindInSortedMatrix().find(15, array));
     }
 }

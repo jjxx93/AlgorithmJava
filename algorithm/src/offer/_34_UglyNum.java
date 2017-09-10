@@ -4,7 +4,7 @@ package offer;
  * 丑数：只包含因子2、3、5的数，第一个丑数为1。
  * 求第N个丑数
  */
-public class UglyNum_34 {
+public class _34_UglyNum {
     static int findUglyNum(int n) {
         if(n <= 0) {
             return 0;
@@ -37,6 +37,6 @@ public class UglyNum_34 {
     }
 
     public static void main(String[] args) {
-        System.out.println(UglyNum_34.findUglyNum(4));
+        System.out.println(_34_UglyNum.findUglyNum(4));
     }
 }

@@ -5,7 +5,7 @@ package offer;
  *
  * Created by 熊佳新 on 2017/9/8.
  */
-public class ReconstructTree_06 {
+public class _06_ReconstructTree {
     private static class TreeNode {
         int value;
         TreeNode left;
@@ -64,6 +64,6 @@ public class ReconstructTree_06 {
         int[] preOrder = {0,2,4,7,3,5,6,9};
         int[] inOrder =  {4,7,2,0,5,3,9,6};
 
-        ReconstructTree_06.GenerateTreeByPreOrderAndInOrder(preOrder, inOrder);
+        _06_ReconstructTree.GenerateTreeByPreOrderAndInOrder(preOrder, inOrder);
     }
 }
