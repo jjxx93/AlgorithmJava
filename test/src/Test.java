@@ -1,27 +1,47 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by jjxx9 on 2017/4/11.
  */
+class Dad {
+    String name;
+    private String nickName;
 
+    String getName() {
+        return name;
+    }
+
+    void setName(String name) {
+        this.name = name;
+    }
+
+    String getNickName() {
+        return nickName;
+    }
+
+    void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+}
+
+
+class Son extends Dad {
+    String outSea;
+}
 
 public class Test {
-        public static int method(int i)throws Exception {
-            try {
-                return 100/i;
-            } catch(Exception ex){
-                throw new Exception("exception in a Method ");
-            } finally {
-                System.out.printf("finally ");
-            }
-        }
-        public static void main(String[] args){
-            try {
-                method(0);
-            } catch(Exception ex){
-                System.out.printf("exception in main ");
-            }
-            System.out.printf("finished ");
-        }
+    public static void main(String[] args){
+        Dad d = new Dad();
+        d.setNickName("jack");
+        System.out.println(d.getNickName());
+        Son s = new Son();
+        s.setName("tom");
+        System.out.println(s.getName());
     }
+}
 /*
 while (上一次迭代中是有交换发生) {
     for（从第一个用户到最后一个用户）{     // Ni
